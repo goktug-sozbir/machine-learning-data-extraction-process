@@ -1,0 +1,423 @@
+import requests
+from bs4 import BeautifulSoup
+import csv
+import nltk
+from nltk.probability import FreqDist
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+nltk.download('punkt')
+
+csv_file = open('anahamveri.csv','w',newline="")
+csv_writer=csv.writer(csv_file)
+csv_writer.writerow(['başlık'])
+
+
+source = requests.get('https://www.emlak365.com/toki-haberleri/page/1#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti in soup.find_all('div',class_='hs-item-caption'):
+   baslık=veriseti.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık.text])
+
+source = requests.get('https://www.emlak365.com/toki-haberleri/page/2#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti1 in soup.find_all('div',class_='hs-item-caption'):
+   baslık1=veriseti1.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık1.text])
+
+source = requests.get('https://www.emlak365.com/toki-haberleri/page/3#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriset2 in soup.find_all('div',class_='hs-item-caption'):
+   baslık2=veriseti2.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık2.text])
+
+source = requests.get('https://www.emlak365.com/toki-haberleri/page/4#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti3 in soup.find_all('div',class_='hs-item-caption'):
+   baslık3=veriseti3.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık3.text])
+
+source = requests.get('https://www.emlak365.com/toki-haberleri/page/5#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti4 in soup.find_all('div',class_='hs-item-caption'):
+   baslık4=veriseti4.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık4.text])
+
+source = requests.get('https://www.emlak365.com/toki-haberleri/page/6#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti5 in soup.find_all('div',class_='hs-item-caption'):
+   baslık5=veriseti5.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık5.text])
+
+source = requests.get('https://www.emlak365.com/toki-haberleri/page/7#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti6 in soup.find_all('div',class_='hs-item-caption'):
+   baslık6=veriseti6.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık6.text])
+
+source = requests.get('https://www.emlak365.com/toki-haberleri/page/8#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti7 in soup.find_all('div',class_='hs-item-caption'):
+   baslık7=veriseti7.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık7.text])
+
+source = requests.get('https://www.emlak365.com/toki-haberleri/page/9#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti8 in soup.find_all('div',class_='hs-item-caption'):
+   baslık8=veriseti8.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık8.text])   
+
+source = requests.get('https://www.emlak365.com/konut-kredisi/').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti9 in soup.find_all('div',class_='hs-item-caption'):
+   baslık9=veriseti9.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık9.text])
+
+source = requests.get('https://www.emlak365.com/konut-kredisi/page/2#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti10 in soup.find_all('div',class_='hs-item-caption'):
+   baslık10=veriseti10.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık10.text])
+
+source = requests.get('https://www.emlak365.com/konut-kredisi/page/3#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti11 in soup.find_all('div',class_='hs-item-caption'):
+   baslık11=veriseti11.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık11.text])
+
+source = requests.get('https://www.emlak365.com/konut-kredisi/page/4#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti12 in soup.find_all('div',class_='hs-item-caption'):
+   baslık12=veriseti12.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık12.text])
+
+source = requests.get('https://www.emlak365.com/konut-kredisi/page/5#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti13 in soup.find_all('div',class_='hs-item-caption'):
+   baslık13=veriseti13.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık13.text])
+
+source = requests.get('https://www.emlak365.com/konut-kredisi/page/6#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti14 in soup.find_all('div',class_='hs-item-caption'):
+   baslık14=veriseti14.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık14.text])
+
+source = requests.get('https://www.emlak365.com/konut-kredisi/page/7#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti15 in soup.find_all('div',class_='hs-item-caption'):
+   baslık15=veriseti15.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık15.text])
+
+source = requests.get('https://www.emlak365.com/konut-kredisi/page/8#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti16 in soup.find_all('div',class_='hs-item-caption'):
+   baslık16=veriseti16.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık16.text])
+
+source = requests.get('https://www.emlak365.com/konut-kredisi/page/9#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti17 in soup.find_all('div',class_='hs-item-caption'):
+   baslık17=veriseti17.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık17.text])
+
+source = requests.get('https://www.emlak365.com/gundem/').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti18 in soup.find_all('div',class_='hs-item-caption'):
+   baslık18=veriseti18.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık18.text])
+
+source = requests.get('https://www.emlak365.com/gundem/page/2#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti19 in soup.find_all('div',class_='hs-item-caption'):
+   baslık19=veriseti19.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık19.text])
+
+source = requests.get('https://www.emlak365.com/gundem/page/3#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti20 in soup.find_all('div',class_='hs-item-caption'):
+   baslık20=veriseti20.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık20.text])
+
+source = requests.get('https://www.emlak365.com/gundem/page/4#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti21 in soup.find_all('div',class_='hs-item-caption'):
+   baslık21=veriseti21.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık21.text])
+
+source = requests.get('https://www.emlak365.com/gundem/page/5#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti22 in soup.find_all('div',class_='hs-item-caption'):
+   baslık22=veriseti22.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık22.text])
+
+source = requests.get('https://www.emlak365.com/gundem/page/6#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti23 in soup.find_all('div',class_='hs-item-caption'):
+   baslık23=veriseti23.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık23.text])
+
+source = requests.get('https://www.emlak365.com/gundem/page/7#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti24 in soup.find_all('div',class_='hs-item-caption'):
+   baslık24=veriseti24.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık24.text])
+
+source = requests.get('https://www.emlak365.com/gundem/page/8#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti25 in soup.find_all('div',class_='hs-item-caption'):
+   baslık25=veriseti25.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık25.text])
+
+source = requests.get('https://www.emlak365.com/gundem/page/9#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti26 in soup.find_all('div',class_='hs-item-caption'):
+   baslık26=veriseti26.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık26.text])
+
+source = requests.get('https://www.emlak365.com/emlak-magazin/page/1#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti27 in soup.find_all('div',class_='hs-item-caption'):
+   baslık27=veriseti27.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık27.text])
+
+source = requests.get('https://www.emlak365.com/emlak-magazin/page/2#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti28 in soup.find_all('div',class_='hs-item-caption'):
+   baslık28=veriseti28.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık28.text])
+
+source = requests.get('https://www.emlak365.com/emlak-magazin/page/3#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti29 in soup.find_all('div',class_='hs-item-caption'):
+   baslık29=veriseti29.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık29.text])
+
+source = requests.get('https://www.emlak365.com/emlak-magazin/page/4#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti30 in soup.find_all('div',class_='hs-item-caption'):
+   baslık30=veriseti30.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık30.text])
+
+source = requests.get('https://www.emlak365.com/emlak-magazin/page/5#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti31 in soup.find_all('div',class_='hs-item-caption'):
+   baslık31=veriseti31.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık31.text])
+
+source = requests.get('https://www.emlak365.com/emlak-magazin/page/6#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti32 in soup.find_all('div',class_='hs-item-caption'):
+   baslık32=veriseti32.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık32.text])
+
+source = requests.get('https://www.emlak365.com/emlak-magazin/page/7#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti33 in soup.find_all('div',class_='hs-item-caption'):
+   baslık33=veriseti33.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık33.text])
+
+source = requests.get('https://www.emlak365.com/emlak-magazin/page/8#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti34 in soup.find_all('div',class_='hs-item-caption'):
+   baslık34=veriseti34.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık34.text])
+
+source = requests.get('https://www.emlak365.com/emlak-magazin/page/9#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti34 in soup.find_all('div',class_='hs-item-caption'):
+   baslık34=veriseti34.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık34.text])
+
+source = requests.get('https://www.emlak365.com/tasit-kredisi/page/1#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti35 in soup.find_all('div',class_='hs-item-caption'):
+   baslık35=veriseti35.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık35.text])
+
+source = requests.get('https://www.emlak365.com/tasit-kredisi/page/2#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti36 in soup.find_all('div',class_='hs-item-caption'):
+   baslık36=veriseti36.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık36.text])
+
+source = requests.get('https://www.emlak365.com/tasit-kredisi/page/3#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti37 in soup.find_all('div',class_='hs-item-caption'):
+   baslık37=veriseti37.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık37.text])
+
+source = requests.get('https://www.emlak365.com/tasit-kredisi/page/4#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti38 in soup.find_all('div',class_='hs-item-caption'):
+   baslık38=veriseti38.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık38.text])
+
+source = requests.get('https://www.emlak365.com/tasit-kredisi/page/5#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti39 in soup.find_all('div',class_='hs-item-caption'):
+   baslık39=veriseti39.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık39.text])
+
+source = requests.get('https://www.emlak365.com/tasit-kredisi/page/6#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti40 in soup.find_all('div',class_='hs-item-caption'):
+   baslık40=veriseti40.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık40.text])
+
+source = requests.get('https://www.emlak365.com/tasit-kredisi/page/7#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti41 in soup.find_all('div',class_='hs-item-caption'):
+   baslık41=veriseti41.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık41.text])
+
+source = requests.get('https://www.emlak365.com/tasit-kredisi/page/8#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti42 in soup.find_all('div',class_='hs-item-caption'):
+   baslık42=veriseti42.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık42.text])
+
+source = requests.get('https://www.emlak365.com/tasit-kredisi/page/9#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti43 in soup.find_all('div',class_='hs-item-caption'):
+   baslık43=veriseti43.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık43.text])
+
+source = requests.get('https://www.emlak365.com/gezi-seyahat-rehberi/page/1#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti44 in soup.find_all('div',class_='hs-item-caption'):
+   baslık44=veriseti44.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık44.text])
+
+source = requests.get('https://www.emlak365.com/gezi-seyahat-rehberi/page/2#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti45 in soup.find_all('div',class_='hs-item-caption'):
+   baslık45=veriseti45.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık45.text])
+
+source = requests.get('https://www.emlak365.com/gezi-seyahat-rehberi/page/3#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti46 in soup.find_all('div',class_='hs-item-caption'):
+   baslık46=veriseti46.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık46.text])
+
+source = requests.get('https://www.emlak365.com/gezi-seyahat-rehberi/page/4#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti47 in soup.find_all('div',class_='hs-item-caption'):
+   baslık47=veriseti47.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık47.text])
+
+source = requests.get('https://www.emlak365.com/gezi-seyahat-rehberi/page/5#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti48 in soup.find_all('div',class_='hs-item-caption'):
+   baslık48=veriseti48.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık48.text])
+
+source = requests.get('https://www.emlak365.com/gezi-seyahat-rehberi/page/6#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti49 in soup.find_all('div',class_='hs-item-caption'):
+   baslık49=veriseti49.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık49.text])
+
+source = requests.get('https://www.emlak365.com/gezi-seyahat-rehberi/page/7#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti50 in soup.find_all('div',class_='hs-item-caption'):
+   baslık50=veriseti50.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık50.text])
+
+source = requests.get('https://www.emlak365.com/gezi-seyahat-rehberi/page/8#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti51 in soup.find_all('div',class_='hs-item-caption'):
+   baslık51=veriseti51.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık51.text])
+
+source = requests.get('https://www.emlak365.com/gezi-seyahat-rehberi/page/9#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti52 in soup.find_all('div',class_='hs-item-caption'):
+   baslık52=veriseti52.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık52.text])
+
+source = requests.get('https://www.emlak365.com/araba-kampanyalari/page/1#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti53 in soup.find_all('div',class_='hs-item-caption'):
+   baslık53=veriseti53.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık53.text])
+   
+source = requests.get('https://www.emlak365.com/araba-kampanyalari/page/2#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti54 in soup.find_all('div',class_='hs-item-caption'):
+   baslık54=veriseti54.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık54.text])
+   
+source = requests.get('https://www.emlak365.com/araba-kampanyalari/page/3#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti55 in soup.find_all('div',class_='hs-item-caption'):
+   baslık55=veriseti55.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık55.text])
+
+source = requests.get('https://www.emlak365.com/araba-kampanyalari/page/4#horizontal_news').text
+
+soup = BeautifulSoup(source,'lxml') 
+for veriseti56 in soup.find_all('div',class_='hs-item-caption'):
+   baslık56=veriseti56.find('div', class_='hs-item-title hs-title-font')
+   csv_writer.writerow([baslık56.text])   
+
+
+csv_file.close()
+
